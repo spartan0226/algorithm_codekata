@@ -1,4 +1,3 @@
-class Solution() {
-fun solution() {
-yes it is difficult what are you saying it's not?
+class Solution {
+    fun solution(arr: IntArray) = arr.average()
 }
