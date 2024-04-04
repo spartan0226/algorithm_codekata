@@ -1,0 +1,61 @@
+//환경설정 팝업
+        binding.btnTheme.setOnClickListener {
+            val popupMenu = PopupMenu(this, it)
+            popupMenu.menuInflater.inflate(R.menu.menu, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu1 -> {
+                        val items = arrayOf("한국어", "영어 (US)")
+                        val builder = AlertDialog.Builder(this)
+                            .setTitle("한국어/영어")
+                            .setItems(items) { _, id ->
+                                if (items[id] == "한국어") {
+                                    val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+                                    AppCompatDelegate.setApplicationLocales(koLocale)
+                                    Toast.makeText(this, "한국어", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+                                    AppCompatDelegate.setApplicationLocales(enLocale)
+                                    Toast.makeText(this, "English (US)", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        builder.show()
+                        true
+                    }
+
+                    R.id.action_menu2 -> { //테마 변경
+                        val items = arrayOf("라이트 모드", "다크 모드", "사용자 지정")
+                        val builder = AlertDialog.Builder(this)
+                            .setTitle("테마 변경")
+                            .setItems(items) { _, id ->
+                                if (items[id] == "라이트 모드") {
+                                    changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
+                                } else if (items[id] == "다크 모드") {
+                                    changeTheme(AppCompatDelegate.MODE_NIGHT_YES)
+                                } else {
+                                    changeTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                                }
+                            }
+                        builder.show()
+                        true
+                    }
+
+                    else -> {
+                        val items = arrayOf("가로 모드", "세로 모드")
+                        val builder = AlertDialog.Builder(this)
+                            .setTitle("가로/세로 모드")
+                            .setItems(items) { _, id ->
+                                if (items[id] == "가로 모드") {
+                                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE)
+                                } else {
+                                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT)
+                                }
+                            }
+                        builder.show()
+                        true
+                    }
+                }
+            }
+            popupMenu.show()
+        }
