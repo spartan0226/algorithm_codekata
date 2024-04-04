@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgLayout"
+    tools:context=".MyPageActivity">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="72dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
+        app:layout_constraintStart_toEndOf="@+id/ivUserImage"
+        app:layout_constraintTop_toTopOf="@+id/ivUserImage"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginTop="12dp"
+        android:text=""
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <Button
+        android:id="@+id/btnLanguage"
+        android:layout_width="395dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="left"
+        android:radius="0dp"
+        android:text="언어변경"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ivsetup"
+        app:iconPadding="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivUserImage" />
+
+    <Button
+        android:id="@+id/btnScreen"
+        android:layout_width="395dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="left"
+        android:radius="0dp"
+        android:text="화면 모드"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ivsetup"
+        app:iconPadding="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnTheme"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTheme"
+        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+
+    <Button
+        android:id="@+id/btnTheme"
+        android:layout_width="395dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="left"
+        android:radius="0dp"
+        android:text="@string/theme"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ivsetup"
+        app:iconPadding="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogOut"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnLogOut"
+        app:layout_constraintTop_toBottomOf="@+id/btnScreen" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="395dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="left"
+        android:radius="0dp"
+        android:text="@string/logOut"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ivsetup"
+        app:iconPadding="20dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnLanguage"
+        app:layout_constraintStart_toStartOf="@+id/btnLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/btnTheme" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivUserImage"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="24dp"
+
+        android:layout_marginTop="72dp"
+        android:background="@drawable/mypage_user_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnback" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvName"
+        app:layout_constraintVertical_bias="0.266" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
