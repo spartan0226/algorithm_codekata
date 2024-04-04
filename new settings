@@ -1,0 +1,20 @@
+binding.btnScreen.setOnClickListener {
+            val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+            val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    R.id.action_menu4 ->
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                    }
+                false
+                }
+            popM.show()
+            }
+        }
+
+https://sbe03005dev.tistory.com/entry/Android-Kotlin-안드로이드-코틀린-Pop-Up-Menu
