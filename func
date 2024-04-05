@@ -1,0 +1,41 @@
+  private fun changeLanguage() {
+        val kor = getText(R.string.kor)
+        val eng = getText(R.string.eng)
+        val lang = getText(R.string.lang)
+        val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+        val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+
+        binding.btnLanguage.setOnClickListener {
+            val items = arrayOf("$kor", "$eng")
+            val builder = AlertDialog.Builder(this)
+                .setTitle("$lang")
+                .setItems(items) { _, id ->
+                    if (items[id] == "$kor") {
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    } else {
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                    }
+                }
+            builder.show()
+        }
+    }
+
+    private fun changeScreen() {
+        val garo = getText(R.string.garo)
+        val sero = getText(R.string.sero)
+        val screen = getText(R.string.screen)
+
+        binding.btnScreen.setOnClickListener {
+            val items = arrayOf("$garo", "$sero")
+            val builder = AlertDialog.Builder(this)
+                .setTitle("$screen")
+                .setItems(items) { _, id ->
+                    if (items[id] == "$garo") {
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    } else {
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    }
+                }
+            builder.show()
+        }
+    }
