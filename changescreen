@@ -1,0 +1,17 @@
+private fun changeScreen() {
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
+    }
