@@ -1,0 +1,33 @@
+binding.btnLanguage.setOnClickListener {
+            val koLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("ko-KR")
+            val enLocale: LocaleListCompat = LocaleListCompat.forLanguageTags("en-US")
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.language, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu5 ->
+                        AppCompatDelegate.setApplicationLocales(koLocale)
+                    R.id.action_menu6 ->
+                        AppCompatDelegate.setApplicationLocales(enLocale)
+                }
+                false
+            }
+            popM.show()
+        }
+
+        binding.btnScreen.setOnClickListener {
+            val popM = PopupMenu(this, it)
+            popM.menuInflater.inflate(R.menu.screen, popM.menu)
+            popM.setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    R.id.action_menu3 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    R.id.action_menu4 ->
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                }
+                false
+            }
+            popM.show()
+        }
